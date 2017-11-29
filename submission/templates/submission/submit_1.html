@@ -27,7 +27,6 @@
                 <li class="active"><a href="#">CSS3 Animation</a></li>
 
             </ul>
-
             <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Homework <span class="arrow"></span></a>
             </li>
@@ -36,19 +35,17 @@
                 <li>Homework 2</li>
                 <li>Homework 3</li>
             </ul>
-              
+
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> Submit Homework <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-car fa-lg"></i> Your Submissions <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
                 <li><a href="{% url 'submit_1' %}">Submission 1</a></li>
                 <li>Submission 2</li>
                 <li>Submission 3</li>
             </ul>
-            <li data-toggle="collapse" data-target="#products" class="collapsed">
-                <a href=""><i class="fa fa-gift fa-lg"></i> Your Submissions <span class="arrow"></span></a>
-            </li>
+
             <li>
                              <a href="{%url 'logout'%}">
 					<span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Logout
@@ -60,19 +57,14 @@
 <div class="container" id="main">
     <div class="row">
         <div class="col-md-12">
-            <h1>
-		Welcome to your Codezvous 
-	</h1>
-<h2>Your Course Submissions</h2>
 
-{% for submit in submits %}
-    <div>
-        <p>published: {{ submit.published_date }}</p>
-        <p>{{user}}</p>
-        <h1><a href="">{{ submit.title}}</a></h1>
-        <p>{{ submit.text }}</p>
-    </div>
-{% endfor %}
+
+
+    <h1>Submission 1</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
         </div>
     </div>
 </div>
